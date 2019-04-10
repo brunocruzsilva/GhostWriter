@@ -1,0 +1,9 @@
+c:\users\raffael\documents\visual studio 2012\Projects\VideoWriter\VideoWriter\bin\Debug\VideoWriter.exe.config
+c:\users\raffael\documents\visual studio 2012\Projects\VideoWriter\VideoWriter\obj\Debug\VideoWriter.csprojResolveAssemblyReference.cache
+c:\users\raffael\documents\visual studio 2012\Projects\VideoWriter\VideoWriter\obj\Debug\VideoWriter.Form1.resources
+c:\users\raffael\documents\visual studio 2012\Projects\VideoWriter\VideoWriter\obj\Debug\VideoWriter.Properties.Resources.resources
+c:\users\raffael\documents\visual studio 2012\Projects\VideoWriter\VideoWriter\obj\Debug\VideoWriter.csproj.GenerateResource.Cache
+c:\users\raffael\documents\visual studio 2012\Projects\VideoWriter\VideoWriter\bin\Debug\VideoWriter.exe
+c:\users\raffael\documents\visual studio 2012\Projects\VideoWriter\VideoWriter\bin\Debug\VideoWriter.pdb
+c:\users\raffael\documents\visual studio 2012\Projects\VideoWriter\VideoWriter\obj\Debug\VideoWriter.exe
+c:\users\raffael\documents\visual studio 2012\Projects\VideoWriter\VideoWriter\obj\Debug\VideoWriter.pdb
