@@ -24,3 +24,4 @@ D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\InstaSharper\obj\Debug\netstanda
 D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\InstaSharper\obj\Debug\netstandard2.0\InstaSharper.AssemblyInfo.cs
 D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\InstaSharper\obj\Debug\netstandard2.0\InstaSharper.dll
 D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\InstaSharper\obj\Debug\netstandard2.0\InstaSharper.pdb
+D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\InstaSharper\obj\Debug\netstandard2.0\InstaSharper.csprojAssemblyReference.cache

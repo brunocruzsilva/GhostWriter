@@ -13,7 +13,7 @@ namespace VideoWriter
     {
         public StartForm()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         static System.Drawing.Size GetThumbnailSize(System.Drawing.Image original)
@@ -85,7 +85,7 @@ namespace VideoWriter
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {  
                 MessageBox.Show("Falha ao postar as fotos, por favor tente novamente.", "Erro", MessageBoxButtons.OK);
                

@@ -18,18 +18,20 @@ namespace VideoWriter.Robots
 {
     public class ImageBot
     {
-
-        public ImageBot() { }
+        private string _apiKey { get; set; }
+        private string _searchEngineId { get; set; }
+        public ImageBot() {
+            dynamic credentialJson = JsonConvert.DeserializeObject(File.ReadAllText("Credentials.json"));
+            _apiKey = credentialJson["GOOGLE_SEARCH_API_KEY"];
+            _searchEngineId = credentialJson["GOOGLE_SEARCH_ENGINE_ID"];
+        }
 
         public async Task FetchImagesFromGoogle(Post post)
-        {
-            string apiKey = ConfigurationSettings.AppSettings["GOOGLE_SEARCH_API_KEY"];
-            string searchEngineId = ConfigurationSettings.AppSettings["GOOGLE_SEARCH_ENGINE_ID"];
-
-            using (var searchService = new CustomsearchService(new Google.Apis.Services.BaseClientService.Initializer { ApiKey = apiKey }))
+        { 
+            using (var searchService = new CustomsearchService(new Google.Apis.Services.BaseClientService.Initializer { ApiKey = _apiKey }))
             {
                 var listRequest = searchService.Cse.List(post.Keyword);
-                listRequest.Cx = searchEngineId;
+                listRequest.Cx = _searchEngineId;
                 listRequest.SearchType = (int)SearchTypeEnum.Image;
                 listRequest.Num = 1;
                 listRequest.ImgSize = CseResource.ListRequest.ImgSizeEnum.Xxlarge;

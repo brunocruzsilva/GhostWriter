@@ -3,6 +3,7 @@ using InstaSharper.API.Builder;
 using InstaSharper.Classes;
 using InstaSharper.Classes.Models;
 using InstaSharper.Logger;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,10 +22,12 @@ namespace VideoWriter.Robots
 
         public InstagramBot()
         {
+            dynamic credentialJson = JsonConvert.DeserializeObject(File.ReadAllText("Credentials.json")); 
+
             _userSessionData = new UserSessionData
             {
-                UserName = "elencoemdetalhes",
-                Password = "bananasplit"
+                UserName = credentialJson["INSTAGRAM_USER"],
+                Password = credentialJson["INSTAGRAM_PASSWORD"]
             };
 
             var delay = RequestDelay.FromSeconds(2, 2);

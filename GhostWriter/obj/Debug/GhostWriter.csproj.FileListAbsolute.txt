@@ -283,3 +283,4 @@ D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\GhostWriter\bin\Debug\Magick.NET
 D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\GhostWriter\bin\Debug\Newtonsoft.Json.xml
 D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\GhostWriter\bin\Debug\TMDbLib.pdb
 D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\GhostWriter\obj\Debug\GhostWriter.csproj.CopyComplete
+D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\GhostWriter\bin\Debug\Credentials.json

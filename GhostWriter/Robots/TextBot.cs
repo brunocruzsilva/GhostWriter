@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -16,17 +17,19 @@ namespace VideoWriter.Robots
 {
     public class TextBot
     {
+        private string _apiKeyMoviewDB { get; set; }
+        private string _apiKeyAlgorithimia { get; set; }
 
         public TextBot()
-        {
-             
+        { 
+            dynamic credentialJson = JsonConvert.DeserializeObject(File.ReadAllText("Credentials.json"));
+            _apiKeyMoviewDB = credentialJson["THE_MOVIE_DB_API_KEY"];
+            _apiKeyAlgorithimia = credentialJson["ALGORITHIMIA_API_KEY"];
         }
 
         public async Task FetchTvCreditsFromTMDB(Post post)
-        {
-            string apiKey = ConfigurationSettings.AppSettings["THE_MOVIE_DB_API_KEY"];
-
-            TMDbClient client = new TMDbClient(apiKey);
+        {  
+            TMDbClient client = new TMDbClient(_apiKeyMoviewDB);
 
             client.DefaultLanguage = "pt-BR";
 
@@ -38,10 +41,8 @@ namespace VideoWriter.Robots
         }
 
         public async Task FetchBiographyFromWikipedia(Post post)
-        {
-            string apiKey = ConfigurationSettings.AppSettings["ALGORITHIMIA_API_KEY"];
-
-            Algorithmia.Client client = new Algorithmia.Client(apiKey);
+        {   
+            Algorithmia.Client client = new Algorithmia.Client(_apiKeyAlgorithimia);
 
             var algorithm = client.algo("web/WikipediaParser/0.1.2");
 
