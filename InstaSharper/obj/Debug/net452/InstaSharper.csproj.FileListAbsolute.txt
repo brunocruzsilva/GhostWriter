@@ -26,3 +26,4 @@ D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\InstaSharper\obj\Debug\net452\In
 D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\InstaSharper\obj\Debug\net452\InstaSharper.csproj.CopyComplete
 D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\InstaSharper\obj\Debug\net452\InstaSharper.dll
 D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\InstaSharper\obj\Debug\net452\InstaSharper.pdb
+D:\PROJETOS\ghostwriter\GhostWriter\GhostWriter\InstaSharper\obj\Debug\net452\InstaSharper.csprojAssemblyReference.cache
