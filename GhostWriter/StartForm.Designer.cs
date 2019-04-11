@@ -32,6 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonCreatePost = new System.Windows.Forms.Button();
             this.checkBoxCache = new System.Windows.Forms.CheckBox();
+            this.numberPhotos = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numberPhotos)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxNameActor
@@ -75,12 +78,45 @@
             this.checkBoxCache.AutoSize = true;
             this.checkBoxCache.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxCache.ForeColor = System.Drawing.Color.White;
-            this.checkBoxCache.Location = new System.Drawing.Point(18, 113);
+            this.checkBoxCache.Location = new System.Drawing.Point(18, 96);
             this.checkBoxCache.Name = "checkBoxCache";
             this.checkBoxCache.Size = new System.Drawing.Size(114, 24);
             this.checkBoxCache.TabIndex = 4;
             this.checkBoxCache.Text = "Usar cache";
             this.checkBoxCache.UseVisualStyleBackColor = true;
+            // 
+            // numberPhotos
+            // 
+            this.numberPhotos.Location = new System.Drawing.Point(162, 123);
+            this.numberPhotos.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numberPhotos.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numberPhotos.Name = "numberPhotos";
+            this.numberPhotos.Size = new System.Drawing.Size(39, 20);
+            this.numberPhotos.TabIndex = 5;
+            this.numberPhotos.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(15, 123);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(137, 17);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Quantidade de fotos";
             // 
             // StartForm
             // 
@@ -90,6 +126,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(373, 160);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.numberPhotos);
             this.Controls.Add(this.checkBoxCache);
             this.Controls.Add(this.buttonCreatePost);
             this.Controls.Add(this.label1);
@@ -100,6 +138,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Ghost Writer";
+            ((System.ComponentModel.ISupportInitialize)(this.numberPhotos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,6 +149,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonCreatePost;
         private System.Windows.Forms.CheckBox checkBoxCache;
+        private System.Windows.Forms.NumericUpDown numberPhotos;
+        private System.Windows.Forms.Label label2;
     }
 }
 

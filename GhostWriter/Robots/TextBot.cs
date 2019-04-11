@@ -37,6 +37,8 @@ namespace VideoWriter.Robots
 
             TvCredits tvCredits = await client.GetPersonTvCreditsAsync(searchPersonContainer.Results.First().Id);
 
+            tvCredits.Cast = tvCredits.Cast.Where(x => !String.IsNullOrEmpty(x.Character)).OrderByDescending(x => x.EpisodeCount).ToList();
+
             post.TvCredits = tvCredits;
         }
 
@@ -59,10 +61,11 @@ namespace VideoWriter.Robots
         {
             StringBuilder sb = new StringBuilder();
 
-            foreach (var credit in post.TvCredits.Cast.Where(x => !String.IsNullOrEmpty(x.Character)).OrderByDescending(x => x.FirstAirDate).ToList())
+            sb.Append(post.Keyword + " atuou na tv principalmente em ");
+
+            foreach (var credit in post.TvCredits.Cast)
             {
-                sb.Append(" * " + credit.Name + "(" + credit.OriginalName + ") como " + credit.Character);
-                sb.Append("\\n");
+                sb.Append(" " + credit.OriginalName  + " no papel de " + credit.Character + " por " + credit.EpisodeCount + " episodios,"); 
             }
             post.Subtitle = sb.ToString();
         }

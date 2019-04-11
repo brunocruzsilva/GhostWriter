@@ -14,6 +14,7 @@ namespace VideoWriter.Struct
             this.Tags = new List<string>(); 
         }
 
+        public int MaxNumberImages { get; set; }
         public bool IsPosted { get; set; }
         public string Keyword { get; set; }
         public string Subtitle { get; set; }

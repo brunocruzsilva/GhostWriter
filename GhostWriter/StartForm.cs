@@ -61,27 +61,28 @@ namespace VideoWriter
                 Post post = checkBoxCache.Checked ? await stateBot.Load() : new Post();
 
                 post.Keyword = textBoxNameActor.Text;
+                post.MaxNumberImages = (int)numberPhotos.Value;
 
                 await textBot.FetchTvCreditsFromTMDB(post);
-                //await textBot.FetchBiographyFromWikipedia(post);
-                //await textBot.SanitizeContent(post);
+                await textBot.FetchBiographyFromWikipedia(post);
+                await textBot.SanitizeContent(post);
 
-                //await stateBot.Save(post);
+                await stateBot.Save(post);
 
-                //await imageBot.FetchImagesFromGoogle(post);
-                //await imageBot.DownloadImages(post);
-                //await imageBot.ScaleImages(post);
+                await imageBot.FetchImagesFromGoogle(post);
+                await imageBot.DownloadImages(post);
+                await imageBot.ScaleImages(post);
 
-                //await stateBot.Save(post);
+                await stateBot.Save(post);
 
-                //await instaBot.LoginAsync();
+                await instaBot.LoginAsync();
 
-                //if (post.Images.Count <= 1)
-                //    await instaBot.UploadPhotoAsync(post);
-                //else
-                //    await instaBot.UploadPhotosAlbumAsync(post);
+                if (post.Images.Count <= 1)
+                    await instaBot.UploadPhotoAsync(post);
+                else
+                    await instaBot.UploadPhotosAlbumAsync(post);
 
-                //await imageBot.DeleteFileImages(post);
+                await imageBot.DeleteFileImages(post);
 
                 return true;
             }
@@ -91,6 +92,6 @@ namespace VideoWriter
                
                 return false;  
             }
-        }
+        } 
     }
 }
