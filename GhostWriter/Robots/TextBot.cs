@@ -21,7 +21,7 @@ namespace VideoWriter.Robots
         private string _apiKeyAlgorithimia { get; set; }
 
         public TextBot()
-        { 
+        {   
             dynamic credentialJson = JsonConvert.DeserializeObject(File.ReadAllText("Credentials.json"));
             _apiKeyMoviewDB = credentialJson["THE_MOVIE_DB_API_KEY"];
             _apiKeyAlgorithimia = credentialJson["ALGORITHIMIA_API_KEY"];
