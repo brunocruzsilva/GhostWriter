@@ -9,6 +9,8 @@ namespace VideoWriter.Robots
 {
     public class StateBot
     {
+        private string _nameFile = "Content.json";
+
         public StateBot()
         {
 
@@ -17,7 +19,6 @@ namespace VideoWriter.Robots
         public async Task Save(Post post)
         {
             string _directoryTempGhost = ConfigurationSettings.AppSettings["DIRECTORY_TEMP"];
-            string _nameFile = "Content.json";
 
             if (!Directory.Exists(_directoryTempGhost))
                 Directory.CreateDirectory(_directoryTempGhost);
@@ -37,8 +38,7 @@ namespace VideoWriter.Robots
         }
         public async Task<Post> Load()
         {
-            string _directoryTempGhost = ConfigurationSettings.AppSettings["DIRECTORY_TEMP"];
-            string _nameFile = "Content.json";
+            string _directoryTempGhost = ConfigurationSettings.AppSettings["DIRECTORY_TEMP"]; 
 
             if (!Directory.Exists(_directoryTempGhost))
                 Directory.CreateDirectory(_directoryTempGhost);

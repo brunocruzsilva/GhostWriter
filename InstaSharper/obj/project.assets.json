@@ -3119,11 +3119,11 @@
   "project": {
     "version": "1.4.0",
     "restore": {
-      "projectUniqueName": "D:\\PROJETOS\\ghostwritter\\GhostWriter\\InstaSharper\\InstaSharper.csproj",
+      "projectUniqueName": "D:\\PROJETOS\\ghostwriter\\GhostWriter\\GhostWriter\\InstaSharper\\InstaSharper.csproj",
       "projectName": "InstaSharper",
-      "projectPath": "D:\\PROJETOS\\ghostwritter\\GhostWriter\\InstaSharper\\InstaSharper.csproj",
+      "projectPath": "D:\\PROJETOS\\ghostwriter\\GhostWriter\\GhostWriter\\InstaSharper\\InstaSharper.csproj",
       "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-      "outputPath": "D:\\PROJETOS\\ghostwritter\\GhostWriter\\InstaSharper\\obj\\",
+      "outputPath": "D:\\PROJETOS\\ghostwriter\\GhostWriter\\GhostWriter\\InstaSharper\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

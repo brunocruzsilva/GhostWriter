@@ -24,7 +24,7 @@ namespace VideoWriter.Robots
             _userSessionData = new UserSessionData
             {
                 UserName = "elencoemdetalhes",
-                Password = "05141631"
+                Password = "bananasplit"
             };
 
             var delay = RequestDelay.FromSeconds(2, 2);
@@ -78,9 +78,9 @@ namespace VideoWriter.Robots
             {
                 var mediaImage = new InstaImage
                 {
-                    Height = image.Height,
-                    Width = image.Width,
-                    URI = new Uri(Path.GetFullPath(image.PathResize), UriKind.Absolute).LocalPath
+                    Height = 1080,
+                    Width = 1080,
+                    URI = new Uri(Path.GetFullPath(image.PathResize), UriKind.Absolute).LocalPath,
                 };
                 var result = await _instaApi.UploadPhotoAsync(mediaImage, post.Subtitle);
 
@@ -102,8 +102,8 @@ namespace VideoWriter.Robots
                 {
                     var mediaImage = new InstaImage
                     {
-                        Height = image.Height,
-                        Width = image.Width,
+                        Height = 1080,
+                        Width = 1080,
                         URI = new Uri(Path.GetFullPath(image.PathResize), UriKind.Absolute).LocalPath
                     };
                     listInstaImage.Add(mediaImage);
@@ -111,6 +111,11 @@ namespace VideoWriter.Robots
                 var result = await _instaApi.UploadPhotosAlbumAsync(listInstaImage.ToArray(), post.Subtitle);
                  
                 post.IsPosted = result.Succeeded;
+
+                if(!result.Succeeded)
+                { 
+                    throw new Exception("Falha ao postar fotos: " + result.Info.Message);
+                }
             }
             else
             {

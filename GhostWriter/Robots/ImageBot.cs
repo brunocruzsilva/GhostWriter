@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
@@ -30,8 +31,9 @@ namespace VideoWriter.Robots
                 var listRequest = searchService.Cse.List(post.Keyword);
                 listRequest.Cx = searchEngineId;
                 listRequest.SearchType = (int)SearchTypeEnum.Image;
-                listRequest.Num = 6;
-                listRequest.ImgSize = Google.Apis.Customsearch.v1.CseResource.ListRequest.ImgSizeEnum.Xxlarge;
+                listRequest.Num = 1;
+                listRequest.ImgSize = CseResource.ListRequest.ImgSizeEnum.Xxlarge;
+                listRequest.Rights = "cc_publicdomain";
 
                 var search = listRequest.Execute();
 
@@ -99,26 +101,17 @@ namespace VideoWriter.Robots
                 var newWidth = (int)(image.Width * ratio);
                 var newHeight = (int)(image.Height * ratio);
 
-                var newImage = new System.Drawing.Bitmap(maxWidth, maxHeight);
+                var newImage = new System.Drawing.Bitmap(maxWidth, maxHeight, PixelFormat.Format24bppRgb);
 
                 using (var graphics = System.Drawing.Graphics.FromImage(newImage))
                 { 
                     int y = (maxHeight / 2) - newHeight / 2;
                     int x = (maxWidth / 2) - newWidth / 2;
-                    graphics.Clear(System.Drawing.Color.Transparent);
-                     
+                    graphics.Clear(System.Drawing.Color.White); 
+
                     graphics.DrawImage(image, x, y, newWidth, newHeight);
                 }
-
-                using (MemoryStream memory = new MemoryStream())
-                {
-                    using (FileStream fs = new FileStream(imageItem.PathResize, FileMode.Create, FileAccess.ReadWrite))
-                    {
-                        newImage.Save(memory, ImageFormat.Png);
-                        byte[] bytes = memory.ToArray();
-                        fs.Write(bytes, 0, bytes.Length);
-                    }
-                }  
+                newImage.Save(imageItem.PathResize, ImageFormat.Jpeg); 
             }
         }
          

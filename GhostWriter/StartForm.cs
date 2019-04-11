@@ -51,37 +51,46 @@ namespace VideoWriter
 
         private async Task<bool> CreatePost()
         {
-            StateBot stateBot = new StateBot();
-            TextBot textBot = new TextBot();
-            ImageBot imageBot = new ImageBot();
-            InstagramBot instaBot = new InstagramBot();
+            try
+            {
+                StateBot stateBot = new StateBot();
+                TextBot textBot = new TextBot();
+                ImageBot imageBot = new ImageBot();
+                InstagramBot instaBot = new InstagramBot();
 
-            Post post = await stateBot.Load();
+                Post post = checkBoxCache.Checked ? await stateBot.Load() : new Post();
 
-            post.Keyword = textBoxNameActor.Text;
+                post.Keyword = textBoxNameActor.Text;
 
-            await textBot.FetchTvCreditsFromTMDB(post);
-            await textBot.FetchBiographyFromWikipedia(post);
-            await textBot.SanitizeContent(post);
+                await textBot.FetchTvCreditsFromTMDB(post);
+                //await textBot.FetchBiographyFromWikipedia(post);
+                //await textBot.SanitizeContent(post);
 
-            await stateBot.Save(post);
+                //await stateBot.Save(post);
 
-            await imageBot.FetchImagesFromGoogle(post);
-            await imageBot.DownloadImages(post);
-            await imageBot.ScaleImages(post);
+                //await imageBot.FetchImagesFromGoogle(post);
+                //await imageBot.DownloadImages(post);
+                //await imageBot.ScaleImages(post);
 
-            await stateBot.Save(post);
+                //await stateBot.Save(post);
 
-            await instaBot.LoginAsync();
+                //await instaBot.LoginAsync();
 
-            if (post.Images.Count <= 1)
-                await instaBot.UploadPhotoAsync(post);
-            else
-                await instaBot.UploadPhotosAlbumAsync(post);
+                //if (post.Images.Count <= 1)
+                //    await instaBot.UploadPhotoAsync(post);
+                //else
+                //    await instaBot.UploadPhotosAlbumAsync(post);
 
-            await imageBot.DeleteFileImages(post);
+                //await imageBot.DeleteFileImages(post);
 
-            return true;
+                return true;
+            }
+            catch (Exception)
+            {  
+                MessageBox.Show("Falha ao postar as fotos, por favor tente novamente.", "Erro", MessageBoxButtons.OK);
+               
+                return false;  
+            }
         }
     }
 }
