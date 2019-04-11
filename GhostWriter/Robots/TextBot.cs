@@ -16,7 +16,7 @@ using VideoWriter.Struct;
 namespace VideoWriter.Robots
 {
     public class TextBot
-    {
+    { 
         private string _apiKeyMoviewDB { get; set; }
         private string _apiKeyAlgorithimia { get; set; }
 
